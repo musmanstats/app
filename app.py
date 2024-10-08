@@ -22,9 +22,9 @@ with data_sets:
     st.write(df.head())
     df['survived'] = pd.Categorical(df['survived'], categories=[0, 1], ordered=True)
     df['survived_label'] = df['survived'].map({0: 'Not Survived', 1: 'Survived'})
-    st.subheader("Missing values")
-    st.write(df.isna().sum())
+    st.subheader("Data file after dropping `missing` observations from `age` data")
     df = df.dropna(subset=['age'])
+    st.write(df.shape)
 
 # Sidebar for plot selections
     st.sidebar.header("Visualization Settings")
